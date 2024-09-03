@@ -1,129 +1,81 @@
 ﻿@model IEnumerable<AppFluxoDeCaixa.Models.Clientes>
 
 @{
-    ViewData["Title"] = "Clientes";
+    ViewData["Title"] = "Cadastro de Clientes";
 }
+<div class=" container">
 
-<h1>@ViewData["Title"]</h1>
+    <h1 class="text-center">@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-dark btn-group-lg">Adicionar</a>
-</p>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClientesNome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Logradouro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cidade)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UF)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CEP)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Bairro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Telefone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Celular)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TipoPessoa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CpfCnpj)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataCadastro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataNascFundacao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CadastroAtivo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Observacao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.numero)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <p>
+        <a asp-action="Create" class=" mt-3 btn btn-secondary btn-group-lg     ">Adicionar</a>
+    </p>
+    <div class="table table-responsive mt-5">
+        <table class="table table-hover table-dark table-striped">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClientesNome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Logradouro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cidade)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UF)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CEP)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Bairro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telefone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Celular)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TipoPessoa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CpfCnpj)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataCadastro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataNascFundacao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CadastroAtivo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Observacao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.numero)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ClientesId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ClientesId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ClientesId">Delete</a>
-                    </td>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.ClientesNome)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Celular)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.CpfCnpj)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.DataNascFundacao)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.CadastroAtivo)
+                    </th>
+                    <th class="bg-black"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientesNome)
+                        </td>
+                        <td>
+                            @item.Email
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Celular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CpfCnpj)
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataNascFundacao)
+                        </td>
+                        <td class="text-light">
+                            @if (item.CadastroAtivo == true)
+                            {
+                                <span>Sim</span>
+                            }
+                            else
+                            {
+                                <span>Não</span>
+                            }
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-sm btn btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.ClientesId">Edit</a> 
+                            <a class="btn btn-sm btn btn-outline-info me-2" asp-action="Details" asp-route-id="@item.ClientesId">Details</a> 
+                            <a class="btn btn-sm btn btn-outline-danger me-2" asp-action="Delete" asp-route-id="@item.ClientesId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
+    </div>
 </div>
