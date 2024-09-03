@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AppFluxoDeCaixa.Data.Migrations
+namespace AppFluxoDeCaixa.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240828181548_Clientes")]
+    [Migration("20240903144124_Clientes")]
     partial class Clientes
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace AppFluxoDeCaixa.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -37,10 +37,16 @@ namespace AppFluxoDeCaixa.Data.Migrations
 
                     b.Property<string>("CEP")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
 
                     b.Property<bool>("CadastroAtivo")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
@@ -48,7 +54,8 @@ namespace AppFluxoDeCaixa.Data.Migrations
 
                     b.Property<string>("ClientesNome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CpfCnpj")
                         .IsRequired()
@@ -73,7 +80,6 @@ namespace AppFluxoDeCaixa.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoPessoa")
@@ -81,6 +87,11 @@ namespace AppFluxoDeCaixa.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UF")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.Property<string>("numero")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
