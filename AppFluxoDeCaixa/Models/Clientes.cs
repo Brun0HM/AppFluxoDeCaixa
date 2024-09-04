@@ -40,8 +40,8 @@ namespace AppFluxoDeCaixa.Models
         public string? Telefone { get; set; }
 
         [Required(ErrorMessage = "O campo Celular é obrigatório")]
-        [MaxLength(11, ErrorMessage = "O limite do campo é 11 caracteres")]
-        [MinLength(11, ErrorMessage = "O minimo do campo é 11 caracteres")]
+        [MaxLength(9, ErrorMessage = "O limite do campo é 9 caracteres")]
+        [MinLength(9, ErrorMessage = "O minimo do campo é 9 caracteres")]
         public string Celular { get; set; }
 
         [Display(Name = "Tipo de Pessoa")]
@@ -50,6 +50,10 @@ namespace AppFluxoDeCaixa.Models
 
         [Display(Name = "CPF / CNPJ")]
         [Required(ErrorMessage = "O Campo tipo CPF/CNPJ é obrigadtório")]
+        [MinLength(11, ErrorMessage = "O minimo do campo é 11 caracteres")]
+        [MaxLength(11, ErrorMessage = "O minimo do campo é 11 caracteres")]
+
+
         public string CpfCnpj { get; set; }
         [Display(Name = "Data de cadastro ")]
         [Required(ErrorMessage = "O Campo tipo Data de Cadastro é obrigadtório")]
