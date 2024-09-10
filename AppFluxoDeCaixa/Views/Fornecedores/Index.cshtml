@@ -39,27 +39,33 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
+                            @item.Nome
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CNPJ)
+                            @item.CNPJ
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Email)
+                            @item.Email
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Telefone)
+                            @item.Telefone
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                            @item.DataCadastro
+                        </td>
+                        <td class="text-light">
+                            @if (item.Ativo == true)
+                            {
+                                <span>Sim</span>
+                            }
+                            else
+                            {
+                                <span>Não</span>
+                            }
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Ativo)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.FornecedorId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.FornecedorId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
+                            <a class="btn btn-sm btn btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.FornecedorId">Edit</a>
+                            <a class="btn btn-sm btn btn-outline-danger me-2" asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
                         </td>
                     </tr>
                 }
