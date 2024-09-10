@@ -1,65 +1,69 @@
 ﻿@model IEnumerable<AppFluxoDeCaixa.Models.Fornecedor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Fornecedores";
 }
+<div class="container">
+    <h1 class="text-center text-light display-5">@ViewData["Title"]</h1>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CNPJ)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCadastro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ativo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CNPJ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCadastro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ativo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FornecedorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FornecedorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a asp-action="Create" class="mt-3 btn btn-secondary btn-group-lg">Criar novo</a>
+    </p>
+    <div class="table table-responsive mt-5">
+        <table class="table table-hover table-dark table-striped">
+            <thead>
+                <tr>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.CNPJ)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Telefone)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.DataCadastro)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Ativo)
+                    </th>
+                    <th class="bg-black"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CNPJ)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ativo)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.FornecedorId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.FornecedorId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
